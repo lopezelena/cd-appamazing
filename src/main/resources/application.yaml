@@ -1,0 +1,10 @@
+server:
+  port: 30030
+spring:
+  application:
+    name: appmazing
+  datasource:
+    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:hsql://localhost:9013/templateDB
+    username: SA
+    password:
