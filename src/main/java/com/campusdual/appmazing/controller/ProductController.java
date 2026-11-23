@@ -1,13 +1,18 @@
 package com.campusdual.appmazing.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation. RequestMapping;
-import org.springframework.web.bind.annotation. RestController;
+import com.campusdual.appmazing.api.IProductService;
+import com.campusdual.appmazing.model.dto.ProductDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
+    @Autowired
+    private IProductService productService;
 
     @GetMapping
     public String testController(){
@@ -15,7 +20,33 @@ public class ProductController {
     }
 
     @PostMapping
-    public String testController(String name){
-        return "Product controller works!";
+    public String testController(@RequestBody String name){
+        return "Product controller works, " + name + "!";
     }
+
+    @PostMapping(value = "/get")
+    public ProductDTO queryProduct(@RequestBody ProductDTO productDTO){
+        return productService.queryProduct(productDTO);
+    }
+
+    @GetMapping(value = "/getAll")
+    public List<ProductDTO> queryAllProducts() {
+        return productService.queryAllProducts();
+    }
+
+    @PostMapping(value = "/add")
+    public int addProduct(@RequestBody ProductDTO productDTO){
+        return productService.insertProduct(productDTO);
+    }
+
+    @PutMapping(value = "/update")
+    public int updateProduct(@RequestBody ProductDTO productDTO){
+        return productService.updateProduct(productDTO);
+    }
+
+    @DeleteMapping(value = "/delete")
+    public int deleteProduct(@RequestBody ProductDTO productDTO){
+        return productService.deleteProduct(productDTO);
+    }
+
 }

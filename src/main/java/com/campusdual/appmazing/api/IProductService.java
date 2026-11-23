@@ -10,8 +10,10 @@ public interface IProductService {
     //CRUD
 
     ProductDTO queryProduct(ProductDTO productDTO);
-    List<ProductDTO> queryALLProducts();
+    List<ProductDTO> queryAllProducts();
     int insertProduct(ProductDTO productDTO);
     int updateProduct(ProductDTO productDTO);
     int deleteProduct(ProductDTO productDTO);
+
+
 }
