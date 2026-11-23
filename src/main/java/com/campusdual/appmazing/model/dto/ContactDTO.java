@@ -1,8 +1,7 @@
 package com.campusdual.appmazing.model.dto;
 
-public class ContactDTO {
 
-    public class Contact {
+public class ContactDTO {
 
         private int id;
         private String name;
@@ -11,13 +10,9 @@ public class ContactDTO {
         private String phone;
         private String email;
 
-        public int getId() {
-            return id;
-        }
+        public int getId() {return id;}
 
-        public void setId(int id) {
-            this.id = id;
-        }
+        public void setId(int id) {this.id = id;}
 
         public String getEmail() {
             return email;
@@ -58,5 +53,5 @@ public class ContactDTO {
         public void setName(String name) {
             this.name = name;
         }
-    }
 }
+
